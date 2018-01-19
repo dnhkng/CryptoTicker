@@ -8,6 +8,8 @@ The Top 4 Coins (by market Cap) prices are updated, and the price movement and c
 
 Prices are updated around every 5 minutes on the Coinmarket Cap API.
 
+![Image of Ticker](https://raw.githubusercontent.com/dnhkng/CryptoTicker/master/media/ticker.jpg)
+
 
 ## Initial setup
 
@@ -60,7 +62,12 @@ Prices are updated around every 5 minutes on the Coinmarket Cap API.
 * [HD44780 module](https://www.aliexpress.com/wholesale?catId=0&SearchText=hd44780+20x4) € 2.50
 
 
+![Image of Board](https://raw.githubusercontent.com/dnhkng/CryptoTicker/master/media/ticker.jpg)
+
+
 ## Connections
+
+The two circuit boards can be soldered together directly, just by bending a few header pins and using a little wire.
 
 NodeMCU       | HD44780 module
 ------------- | ---------------

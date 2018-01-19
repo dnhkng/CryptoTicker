@@ -42,10 +42,15 @@ Prices are updated around every 5 minutes on the Coinmarket Cap API.
 	>>> upip.install('micropython-urequests')
 	```
 
-4. Run the demo
-
+4. Restart, and the program will be running.
+	If you break the program with CTRL-C at the REPL,
+	you can get a single update with:
 	```
-	import bitcoin_ticker_test
+	t.update()
+	```	
+	Or restart the program, specifying an update rate is seconds (default is 60):
+	```
+	t.refresh(10)
 	```
 
 

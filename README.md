@@ -8,11 +8,6 @@ The Top 4 Coins (by market Cap) prices are updated, and the price movement and c
 
 Prices are updated around every 5 minutes on the Coinmarket Cap API.
 
-![demo](docs/demo.jpg)
-
-The 84x48 PCD8544 buffer:
-
-![demo](docs/bpi-84x48.png)
 
 ## Initial setup
 
@@ -21,12 +16,6 @@ The 84x48 PCD8544 buffer:
 		* See [ESP8266 QuickRef](http://docs.micropython.org/en/latest/esp8266/esp8266/quickref.html#webrepl-web-browser-interactive-prompt)
 	* using ampy
 		* see [Adafruit ampy guide](https://learn.adafruit.com/micropython-basics-load-files-and-run-code/file-operations)
-	* compiling into the firmware
-		* make erase
-		* copy bitcoin_ticker.py to /esp8266/modules
-		* copy bitcoin_ticker_test.py to /esp8266/modules
-		* copy pcd8544.py to /esp8266/modules
-		* make deploy
 
 2. Connect to WiFi, credentials are persisted, so you wont need to enter them each time
 
@@ -53,80 +42,47 @@ The 84x48 PCD8544 buffer:
 	>>> upip.install('micropython-urequests')
 	```
 
-	Did it install?
-
-	```
-	>>> import os
-	>>> os.listdir()
-	['boot.py', 'lib']
-	>>> os.listdir('lib')
-	['urequests.py']
-	```
-
-	Yes!
-
 4. Run the demo
 
 	```
 	import bitcoin_ticker_test
 	```
 
-#### Example Coindesk API json response:
-
-```
-{
-	"time":{
-		"updated":"May 23, 2017 07:14:00 UTC",
-		"updatedISO":"2017-05-23T07:14:00+00:00",
-		"updateduk":"May 23, 2017 at 08:14 BST"
-	},
-	"disclaimer":"This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
-	"bpi":{
-		"USD":{
-			"code":"USD",
-			"rate":"2,214.9088",
-			"description":"United States Dollar",
-			"rate_float":2214.9088
-		},
-		"AUD":{
-			"code":"AUD",
-			"rate":"2,955.7979",
-			"description":"Australian Dollar",
-			"rate_float":2955.7979
-		}
-	}
-}
-```
-
-`bpi.AUD.rate_float` is parsed from the json and displayed on the LCD.
-
 
 ## Parts
 
-* [WeMos D1 Mini](http://www.aliexpress.com/store/product/D1-mini-Mini-NodeMcu-4M-bytes-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266/1331105_32529101036.html) $4.00 USD
-* [Nokia 5110 module](https://www.aliexpress.com/w/wholesale-Nokia-5110.html?groupsort=1&SortType=price_asc&g=y&SearchText=Nokia+5110) $1.77 USD
-* [Breadboard 400 point](https://www.aliexpress.com/w/wholesale-breadboard.html?groupsort=1&SortType=price_asc&g=y&SearchText=Breadboard+400+point) $0.90 USD
-* [Jumper wire](https://www.aliexpress.com/w/wholesale-breadboard.html?groupsort=1&SortType=price_asc&g=y&SearchText=65+breadboard+jumper+cables) $1.09 USD
+* [NodeMCU](https://www.aliexpress.com/wholesale?catId=0&SearchText=nodemcu) € 2.50
+* [HD44780 module](https://www.aliexpress.com/wholesale?catId=0&SearchText=hd44780+20x4) € 2.50
+
 
 ## Connections
 
-WeMos D1 Mini | Nokia 5110 PCD8544 LCD
+NodeMCU       | HD44780 module
 ------------- | ---------------
-D3 (GPIO0)    | 0 RST
-D4 (GPIO2)    | 1 CE
-D8 (GPIO15)   | 2 DC
-D7 (GPIO13)   | 3 Din
-D5 (GPIO14)   | 4 Clk
-3V3           | 5 Vcc
-D6 (GPIO12)   | 6 BL
-G             | 7 Gnd
+Gnd           | 1 VSS 
+3V            | 2 VDD
+Gnd           | 3 VE (Contrast voltage) 
+D8 (GPIO15)   | 4 RS (Register Select)
+Gnd           | 5 RW (Read/Write)
+D6 (GPIO12)   | 6 EN (Enable)
+              | 7 nc
+              | 8 nc
+              | 9 nc
+              | 10 nc
+D3 (GPIO0)    | 11 D4
+D2 (GPIO0)    | 12 D5
+D1 (GPIO0)    | 13 D6
+D0 (GPIO0)    | 14 D7
+3V            | 15 A (BackLight Anode)
+Gnd           | 16 K (Backlight Cathode)
 
 ## Links
 
-* [MicroPython PCD8544 Driver](https://github.com/mcauser/micropython-pcd8544)
-* [WeMos D1 Mini](https://www.wemos.cc/product/d1-mini.html)
+* [MicroPython HD44780 Driver](https://github.com/CRImier/MicroPython-modules)
+* [NodeMCU](https://en.wikipedia.org/wiki/NodeMCU)
 * [micropython.org](http://micropython.org)
 
 ## Credits
 
+* Inspired by [MicroPython ESP8266 Nokia 5110 Bitcoin Price Index](https://github.com/mcauser/MicroPython-ESP8266-Nokia-5110-Bitcoin)
 * Bitcoin Logo [Wikipedia](https://commons.wikimedia.org/wiki/File:Bitcoin_logo.svg) (Creative Commons CC0 1.0)

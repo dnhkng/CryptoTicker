@@ -70,10 +70,10 @@ Gnd           | 3 VE (Contrast voltage)
 D8 (GPIO15)   | 4 RS (Register Select)
 Gnd           | 5 RW (Read/Write)
 D6 (GPIO12)   | 6 EN (Enable)
-              | 7 nc
-              | 8 nc
-              | 9 nc
-              | 10 nc
+nc            | 7 nc
+nc            | 8 nc
+nc            | 9 nc
+nc            | 10 nc
 D3 (GPIO0)    | 11 D4
 D2 (GPIO0)    | 12 D5
 D1 (GPIO0)    | 13 D6

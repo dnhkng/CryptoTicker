@@ -62,7 +62,7 @@ Prices are updated around every 5 minutes on the Coinmarket Cap API.
 * [HD44780 module](https://www.aliexpress.com/wholesale?catId=0&SearchText=hd44780+20x4) € 2.50
 
 
-![Image of Board](https://raw.githubusercontent.com/dnhkng/CryptoTicker/master/media/ticker.jpg)
+![Image of Board](https://raw.githubusercontent.com/dnhkng/CryptoTicker/master/media/board.jpg)
 
 
 ## Connections
